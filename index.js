@@ -71,5 +71,10 @@ app.post("/generate-nutrition-plan", async (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+  // if production mode show in console only message server is running otherwsie show in console server is running on port
+  console.log(
+    process.env.NODE_ENV === "production"
+      ? "Server is running"
+      : `Server is running on http://localhost:${port}`
+  );
 });
